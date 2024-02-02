@@ -10,6 +10,7 @@ const Login = () => {
     <>
       <Input
         placeholder="Email"
+        _placeholder={{ color: 'inherit' }}
         fontSize={14}
         type="email"
         size={"sm"}
@@ -18,6 +19,7 @@ const Login = () => {
       />
       <Input
         placeholder="Password"
+        _placeholder={{ color: 'inherit' }}
         fontSize={14}
         type="password"
         size={"sm"}

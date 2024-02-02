@@ -16,6 +16,7 @@ const Signup = () => {
     <>
       <Input
         placeholder="Email"
+        _placeholder={{ color: 'inherit' }}
         fontSize={14}
         type="email"
         size={"sm"}
@@ -24,6 +25,7 @@ const Signup = () => {
       />
       <Input
         placeholder="Username"
+        _placeholder={{ color: 'inherit' }}
         fontSize={14}
         type="text"
         size={"sm"}
@@ -32,6 +34,7 @@ const Signup = () => {
       />
       <Input
         placeholder="Full Name"
+        _placeholder={{ color: 'inherit' }}
         fontSize={14}
         type="text"
         size={"sm"}
@@ -41,6 +44,7 @@ const Signup = () => {
       <InputGroup>
         <Input
             placeholder="Password"
+            _placeholder={{ color: 'inherit' }}
             fontSize={14}
             type= {showPassword ? 'text' : 'password'}
             size={"sm"}
