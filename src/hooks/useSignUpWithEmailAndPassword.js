@@ -3,11 +3,14 @@ import { auth, firestore } from "../firebase/firebase";
 import React from "react";
 import { doc, setDoc } from "firebase/firestore";
 import useShowToast from "./useShowToast";
+import useAuthStore from "../store/authStore";
 
 const useSignUpWithEmailAndPassword = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
   const showToast = useShowToast();
+  const loginUser = useAuthStore((state) => state.login);
+  const logoutUser = useAuthStore((state) => state.logout);
 
   const signup = async (inputs) => {
     if (
@@ -43,6 +46,7 @@ const useSignUpWithEmailAndPassword = () => {
         };
         await setDoc(doc(firestore, "users", newUser.user.uid), userDoc);
         localStorage.setItem("user-info", JSON.stringify(userDoc));
+        loginUser(userDoc);
       }
     } catch (error) {
       showToast("Error", error.message, "error");
