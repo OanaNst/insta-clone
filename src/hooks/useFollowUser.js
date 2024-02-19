@@ -8,7 +8,8 @@ import { firestore } from "../firebase/firebase";
 const useFollowUser = (userId) => {
   const [isUpdating, setIsUpdating] = useState(false);
   const [isFollowing, setIsFollowing] = useState(false);
-  const { authUser, setAuthUser } = useAuthStore();
+  const authUser = useAuthStore((state) => state.user);
+  const setAuthUser = useAuthStore((state) => state.setUser);
   const { userProfile, setUserProfile } = useUserProfileStore();
   const showToast = useShowToast();
 
@@ -23,7 +24,7 @@ const useFollowUser = (userId) => {
       });
 
       await updateDoc(userToFollowOrUnfollowWRef, {
-        folllowing: isFollowing
+        followers: isFollowing
           ? arrayRemove(authUser.uid)
           : arrayUnion(authUser.uid),
       });
