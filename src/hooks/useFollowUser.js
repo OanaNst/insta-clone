@@ -33,7 +33,7 @@ const useFollowUser = (userId) => {
         //unfollow
         setAuthUser({
           ...authUser,
-          following: authUser.folllowing.filter((uid) => uid !== userId),
+          following: authUser.following.filter((uid) => uid !== userId),
         });
         setUserProfile({
           ...userProfile,
@@ -46,7 +46,7 @@ const useFollowUser = (userId) => {
           "user-info",
           JSON.stringify({
             ...authUser,
-            following: authUser.folllowing.filter((uid) => uid !== userId),
+            following: authUser.following.filter((uid) => uid !== userId),
           })
         );
         setIsFollowing(false);
